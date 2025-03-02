@@ -50,7 +50,8 @@ The chatbot interacts with an AI model hosted at `http://localhost:11434/api/gen
 
 ## Screenshots
 
-![Chat with AI Screenshot](Screenshot%202025-03-02%20101703.png)
+![Screenshot 2025-03-02 101703](https://github.com/user-attachments/assets/139419fb-a2bb-43b8-b239-387ed0336b90)
+
 
 ## Technologies Used
 
