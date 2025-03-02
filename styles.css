@@ -1,0 +1,223 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Main Layout */
+  .container {
+    display: flex;
+    height: 90vh;
+    width: 80%;
+    max-width: 1200px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Sidebar: Conversation History */
+  .history-container {
+    width: 250px;
+    background: #f4f4f4;
+    padding: 15px;
+    border-right: 2px solid #ddd;
+    overflow-y: auto;
+  }
+  
+  .history-container h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  #history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #history-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+    margin-bottom: 8px;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #history-list li:hover {
+    background: #e0e0e0;
+    transform: scale(1.03);
+  }
+  
+  .delete-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Chat Container */
+  .chat-container {
+    flex: 1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+  }
+  
+  /* Chat Header */
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 20px;
+  }
+  
+  .icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .icon-btn:hover {
+    color: red;
+  }
+  
+  /* Chat Box */
+  #chat-box {
+    flex: 1;
+    border-radius: 8px;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Messages */
+  .message-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  
+  .message {
+    padding: 12px 16px;
+    border-radius: 10px;
+    max-width: 75%;
+    word-wrap: break-word;
+    font-size: 15px;
+    position: relative;
+  }
+  
+  /* User Message */
+  .user {
+    background: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+    margin-right: 30px;
+  }
+  
+  /* Bot Message */
+  .bot {
+    background: #e0e0e0;
+    color: black;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    margin-left: 10px;
+  }
+  
+  /* Edit Button */
+  .edit-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .edit-btn:hover {
+    color: #0056b3;
+  }
+  
+  /* Input Area */
+  .input-container {
+    display: flex;
+    margin-top: 15px;
+  }
+  
+  #user-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    min-height: 40px;
+    resize: none;
+  }
+  
+  #user-input:focus {
+    border-color: #007bff;
+  }
+  
+  /* Send Button */
+  #send-btn {
+    padding: 12px 18px;
+    margin-left: 8px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+  }
+  
+  #send-btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      width: 95%;
+    }
+  
+    .history-container {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #ddd;
+    }
+  }
+  
