@@ -82,20 +82,25 @@ The platform is fully responsive and optimized for:
 
 ##Screenshot of the project
 **Home Page Interface**
+
 ![Screenshot 2025-04-20 170011](https://github.com/user-attachments/assets/521c903e-d330-4b63-8dd5-3a216e16122f)
 
 **Cart Page Interface**
+
 ![Screenshot 2025-04-20 164620](https://github.com/user-attachments/assets/1095b7f3-4961-4b44-b99a-8590c8360e34)
 
 **Profile Page Interface**
+
 ![Screenshot 2025-04-20 164918](https://github.com/user-attachments/assets/716a2828-8524-4a57-a32f-03dabc4d05ae)
 
 **Payment Page Interface**
+
 ![Screenshot 2025-04-20 164726](https://github.com/user-attachments/assets/df8b21bc-c171-46a0-809d-189a9c6c2279)
 
 **AI Assistant using VoiceFlow**
+
 ![Screenshot 2025-04-20 165330](https://github.com/user-attachments/assets/0ceddcaf-828a-496b-9a4c-948ad81e7015)
-![Screenshot 2025-04-20 165818](https://github.com/user-attachments/assets/dc61c233-7e3a-4d6a-a2db-1aa2220b0f7e)
+
 
 
 
