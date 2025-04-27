@@ -80,7 +80,7 @@ The platform is fully responsive and optimized for:
 - Tablets
 - Mobile phones
 
-##Screenshot of the project
+## Screenshot of the project
 **Home Page Interface**
 
 ![Screenshot 2025-04-20 170011](https://github.com/user-attachments/assets/521c903e-d330-4b63-8dd5-3a216e16122f)
