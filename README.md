@@ -43,7 +43,7 @@ A modern, responsive e-commerce platform built with HTML, CSS, and JavaScript. T
    cd e-commerce
    ```
 3. Set up your web server:
-   - Configure Apache/Nginx to point to the project's root directory
+   - you can use XAMPP or SQLtools from vscode
    - Ensure PHP is properly configured with MySQL support
 
 4. Configure database:
@@ -52,8 +52,8 @@ A modern, responsive e-commerce platform built with HTML, CSS, and JavaScript. T
    - Update database connection settings in `config/database.php`
 
 5. Configure Chatbot (Optional):
-   - Update chatbot settings in `config/chatbot.php`
-   - Add your chatbot API credentials
+   - Create your own chatbot from voiceflow 
+   - Add your chatbot your own project id to access your own chatbot.
 
 ### Development
 ```bash
