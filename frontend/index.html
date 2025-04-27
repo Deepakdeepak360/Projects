@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My E-Commerce Store</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- 🔷 Banner Background -->
+    <div class="banner_bg_main">
+      <!-- 🔹 Header Top Menu -->
+      <div class="header_top_menu">
+        <div class="container">
+          <ul class="top_menu_list">
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">Gift Ideas</a></li>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">Today's Deals</a></li>
+            <li><a href="#">Customer Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 🔹 Header Main - Make this sticky -->
+      <div class="header_main_area sticky-header">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap py-3">
+          <div class="d-flex align-items-center">
+            <!-- 🔘 Category Dropdown (Dynamic) -->
+            <div class="dropdown mr-2">
+              <button id="categoryBtn" class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
+                All Category
+              </button>
+              <div id="category-list" class="dropdown-menu">
+                <!-- Categories will be inserted here -->
+                 
+              </div>
+            </div>
+
+            <!-- Add Price Filter -->
+            <div class="dropdown mr-2">
+              <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
+                Price Range
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#" onclick="filterByPrice(0, 1000)">Under ₹1,000</a>
+                <a class="dropdown-item" href="#" onclick="filterByPrice(1000, 5000)">₹1,000 - ₹5,000</a>
+                <a class="dropdown-item" href="#" onclick="filterByPrice(5000, 15000)">₹5,000 - ₹15,000</a>
+                <a class="dropdown-item" href="#" onclick="filterByPrice(15000, 30000)">₹15,000 - ₹30,000</a>
+                <a class="dropdown-item" href="#" onclick="filterByPrice(30000, 50000)">₹30,000 - ₹50,000</a>
+                <a class="dropdown-item" href="#" onclick="filterByPrice(0, 999999)">All Prices</a>
+              </div>
+            </div>
+
+            <!-- 🔍 Search bar -->
+            <div class="search-bar d-flex">
+              <input type="text" id="search-input" class="form-control" placeholder="Search..." />
+              <button class="btn search-btn" id="search-btn" style="background-color: #000;">
+                 <i class="fa fa-search" style="color: #fff;"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 🌐 Language, Cart, Profile -->
+          <div class="d-flex align-items-center">
+            <div class="login_menu">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                  <a href="cart.html" style="color: #000;">
+                    <i class="fa fa-shopping-cart"></i> Cart
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="profile.html" style="color: #000;">
+                    <i class="fa fa-user"></i> Profile
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔁 Banner Carousel -->
+      <div class="banner_section layout_padding">
+        <div class="container">
+          <div id="my_slider" class="carousel slide" data-ride="carousel" data-interval="2000">
+            <div class="carousel-inner">
+              <div class="carousel-item active text-center text-white banner-slide">
+                <div class="banner_content d-flex flex-column justify-content-center">
+                  <h1 class="banner_taital display-4 font-weight-bold mb-3">
+                    Discover Amazing Deals
+                  </h1>
+                  <p class="banner_subtitle h3 mb-4">Shop Smart, Save More</p>
+                  <div class="text-center">
+                    <a href="#product-container" class="btn btn-light btn-lg px-5">
+                      Shop Now <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item text-center text-white banner-slide">
+                <div class="banner_content d-flex flex-column justify-content-center">
+                  <h1 class="banner_taital display-4 font-weight-bold mb-3">
+                    Premium Quality
+                  </h1>
+                  <p class="banner_subtitle h3 mb-4">Trusted Brands</p>
+                  <div class="brand-icons mb-4">
+                    <i class="fas fa-check-circle fa-2x mx-2"></i>
+                    <i class="fas fa-star fa-2x mx-2"></i>
+                    <i class="fas fa-award fa-2x mx-2"></i>
+                  </div>
+                </div>
+              </div>
+              <!-- Apply the same structure to other slides -->
+              <div class="carousel-item text-center text-white banner-slide">
+                <div class="banner_content d-flex flex-column justify-content-center">
+                  <h1 class="banner_taital display-4 font-weight-bold mb-3">
+                    Free Shipping
+                  </h1>
+                  <p class="banner_subtitle h3 mb-4">On Orders Above ₹999</p>
+                  <div class="text-center">
+                    <i class="fas fa-shipping-fast fa-4x mb-3"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item text-center text-white banner-slide">
+                <div class="banner_content d-flex flex-column justify-content-center">
+                  <h1 class="banner_taital display-4 font-weight-bold mb-3">
+                    Exclusive Offers
+                  </h1>
+                  <p class="banner_subtitle h3 mb-4">Up to 70% Off</p>
+                  <div class="offer-badge">
+                    <span class="h2">70%</span>
+                    <span>OFF</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ol class="carousel-indicators">
+              <li data-target="#my_slider" data-slide-to="0" class="active"></li>
+              <li data-target="#my_slider" data-slide-to="1"></li>
+              <li data-target="#my_slider" data-slide-to="2"></li>
+              <li data-target="#my_slider" data-slide-to="3"></li>
+            </ol>
+            <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🛍️ Main Product Container -->
+    <main
+      id="product-container"
+      class="container my-5 d-flex flex-wrap justify-content-center gap-4"
+    ></main>
+
+    <!-- 🛒 Shopping Cart -->
+    <div id="cart-sidebar" class="cart-sidebar hidden">
+      <h3>Your Cart</h3>
+      <ul id="cart-items" class="list-group mb-3"></ul>
+      <p>Total: ₹<span id="cart-total">0.00</span></p>
+      <button class="btn btn-primary" onclick="openPaymentPopup()">
+        Buy Now
+      </button>
+      <button class="btn btn-secondary" onclick="toggleCart()">Close</button>
+    </div>
+
+    <!-- 👤 Profile Popup -->
+    <div id="profile-popup" class="hidden">
+      <img src="assets/images/profile.jpg" alt="Profile" />
+      <h3>John Doe</h3>
+      <p>📞 123-456-7890</p>
+      <button
+        class="btn btn-outline-dark btn-sm mt-2"
+        onclick="toggleProfile()"
+      >
+        Close
+      </button>
+    </div>
+
+    <!-- 💳 Payment Popup -->
+    <div id="payment-popup" class="hidden popup-overlay">
+      <div class="popup-card">
+        <h4>Confirm Purchase</h4>
+        <p>Total Amount: $<span id="payment-total">0.00</span></p>
+        <button class="btn btn-success">Proceed to Pay</button>
+        <button class="btn btn-secondary" onclick="closePaymentPopup()">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./script.js"></script>
+
+    <!-- jQuery, Popper, Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Voiceflow Chatbot Integration -->
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '68010d0ea31e43dca6619953' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              voice: {
+                url: "https://runtime-api.voiceflow.com"
+              }
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+  </body>
+</html>

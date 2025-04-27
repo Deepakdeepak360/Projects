@@ -1,0 +1,6 @@
+run this before opening live server
+php -S localhost:8000
+
+
+For to see Database
+http://localhost:8080/phpmyadmin/

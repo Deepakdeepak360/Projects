@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f3f3f3;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .profile-card {
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      padding: 30px;
+      border-radius: 8px;
+      background: linear-gradient(to right, #232f3e, #37475a);
+      color: white;
+    }
+
+    .profile-pic-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin-right: 40px;
+      cursor: pointer;
+    }
+
+    .profile-pic {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-pic-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .profile-pic-container:hover .profile-pic-overlay {
+      opacity: 1;
+    }
+
+    .profile-pic-container:hover .profile-pic {
+      transform: scale(1.05);
+    }
+
+    .profile-info-container {
+      flex-grow: 1;
+      padding-top: 10px;
+    }
+
+    .profile-name {
+      font-size: 32px;
+      font-weight: 600;
+      color: white;
+      margin: 0 0 20px 0;
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      padding: 10px 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .profile-info:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .profile-info i {
+      font-size: 18px;
+      color: #f90;
+      margin-right: 15px;
+    }
+
+    .profile-info span {
+      font-size: 16px;
+      margin-right: 15px;
+    }
+
+    .edit-icon {
+      margin-left: auto;
+      color: #f90;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-size: 16px;
+    }
+
+    .edit-icon:hover {
+      transform: scale(1.2);
+      color: #fff;
+    }
+
+    .profile-tabs {
+      margin-top: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0;
+    }
+
+    .tab-btn {
+      padding: 12px 25px;
+      margin-right: 5px;
+      border-radius: 8px 8px 0 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      background: #e9ecef;
+    }
+  </style>
+
+  <div class="profile-card">
+    <div class="profile-header">
+      <div class="profile-pic-container" onclick="document.getElementById('file-input').click()">
+        <img id="profile-pic" src="assets/images/profile.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="profile-pic-overlay">
+          <i class="fas fa-camera fa-lg" style="color: white;"></i>
+        </div>
+        <input type="file" id="file-input" accept="image/*" onchange="updateProfilePic(this)" style="display: none;">
+      </div>
+      
+      <div class="profile-info-container">
+        <h3 id="profile-name" class="profile-name">Loading...</h3>
+        <p class="profile-info">
+          <i class="fas fa-phone-alt"></i>
+          <span id="phone-text"></span>
+          <i class="fas fa-edit edit-icon" onclick="editField('phone')" title="Edit Phone"></i>
+        </p>
+        <p class="profile-info">
+          <i class="fas fa-envelope"></i>
+          <span id="email-text"></span>
+          <i class="fas fa-edit edit-icon" onclick="editField('email')" title="Edit Email"></i>
+        </p>
+      </div>
+    </div>
+
+    <div class="profile-tabs">
+      <button class="tab-btn active" onclick="showTab('orders')">My Orders</button>
+      <button class="tab-btn" onclick="showTab('wishlist')">Wishlist</button>
+      <button class="tab-btn" onclick="showTab('settings')">Settings</button>
+    </div>
+    
+    <div class="tab-content">
+      <div id="orders-tab" class="tab-pane active">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="mb-0">Order History</h5>
+        </div>
+        <div id="orders-container">
+          <!-- Orders will be loaded here dynamically -->
+        </div>
+      </div>
+      
+      <div id="wishlist-tab" class="tab-pane">
+        <p class="text-center">Your wishlist is empty.</p>
+      </div>
+      
+      <div id="settings-tab" class="tab-pane">
+        <div class="form-group">
+          <label>Change Password</label>
+          <input type="password" class="form-control mb-2" placeholder="Current Password">
+          <input type="password" class="form-control mb-2" placeholder="New Password">
+          <input type="password" class="form-control mb-2" placeholder="Confirm New Password">
+          <button class="btn btn-sm btn-primary">Update Password</button>
+        </div>
+      </div>
+    </div>
+    
+    <a href="index.html" class="btn btn-outline-dark btn-back">⬅ Back to Home</a>
+  </div>
+
+  <script>
+    // Simulated profile data
+    const userProfile = {
+      name: "Deepak",
+      phone: "123-456-7890",
+      email: "Deepak@example.com",
+      image: "assets/images/profile.jpg"
+    };
+
+    window.onload = function () {
+      document.getElementById("profile-name").textContent = userProfile.name;
+      document.getElementById("phone-text").textContent = userProfile.phone;
+      document.getElementById("email-text").textContent = userProfile.email;
+      document.getElementById("profile-pic").src = userProfile.image;
+      
+      // Load profile data from localStorage if available
+      const savedImage = localStorage.getItem('profileImage');
+      if (savedImage) {
+        document.getElementById("profile-pic").src = savedImage;
+      }
+      
+      const savedPhone = localStorage.getItem('profilePhone');
+      if (savedPhone) {
+        document.getElementById("phone-text").textContent = savedPhone;
+      }
+      
+      const savedEmail = localStorage.getItem('profileEmail');
+      if (savedEmail) {
+        document.getElementById("email-text").textContent = savedEmail;
+      }
+      
+      // Fetch orders
+      fetchOrders();
+    };
+    
+    function fetchOrders() {
+      const container = document.getElementById('orders-container');
+      container.innerHTML = `
+        <div class="text-center py-3">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <p>Loading your orders...</p>
+        </div>
+      `;
+
+      fetch('http://localhost:8000/frontend/backend/fetch_orders.php')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.error) {
+            throw new Error(data.error);
+          }
+          displayOrders(data);
+        })
+        .catch(error => {
+          console.error('Error fetching orders:', error);
+          container.innerHTML = `
+            <div class="alert alert-danger text-center" role="alert">
+              <i class="fas fa-exclamation-circle me-2"></i>
+              Failed to load orders. Please try again later.
+            </div>
+          `;
+        });
+    }
+    
+    function displayOrders(orders) {
+      const container = document.getElementById('orders-container');
+      
+      if (!orders || orders.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-5">
+            <i class="fas fa-shopping-bag fa-3x text-muted mb-3"></i>
+            <p class="lead">You have no orders yet.</p>
+            <a href="index.html" class="btn btn-primary">Start Shopping</a>
+          </div>`;
+        return;
+      }
+      
+      container.innerHTML = '';
+      
+      orders.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      
+      orders.forEach(order => {
+        const orderDate = new Date(order.created_at).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+        
+        let orderItemsHTML = '';
+        order.items.forEach(item => {
+          orderItemsHTML += `
+            <div class="card mb-2">
+              <div class="row no-gutters align-items-center p-2">
+                <div class="col-3 col-md-2">
+                  <img src="${item.product_image}" alt="${item.product_name}" 
+                    class="img-fluid rounded" style="max-width: 80px; object-fit: contain;">
+                </div>
+                <div class="col-9 col-md-10">
+                  <div class="card-body py-1">
+                    <h6 class="card-title mb-1">${item.product_name}</h6>
+                    <p class="card-text mb-0">
+                      <small class="text-muted">Quantity: ${item.quantity}</small>
+                    </p>
+                    <p class="card-text">
+                      <strong class="text-primary">₹${parseFloat(item.product_price).toFixed(2)}</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        
+        const orderCard = document.createElement('div');
+        orderCard.className = 'card mb-4';
+        orderCard.innerHTML = `
+          <div class="card-header bg-light">
+            <div class="row align-items-center">
+              <div class="col">
+                <strong>Order #${order.id}</strong>
+                <div class="text-muted small">Placed on ${orderDate}</div>
+              </div>
+              <div class="col-auto">
+                <strong>Total: ₹${parseFloat(order.total_amount).toFixed(2)}</strong>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            ${orderItemsHTML}
+          </div>
+        `;
+        
+        container.appendChild(orderCard);
+      });
+    }
+    
+    // Remove the getStatusBadge function since we're not using it anymore
+    function getStatusBadge(status) {
+      switch(status.toLowerCase()) {
+        case 'delivered':
+          return 'success';
+        case 'processing':
+          return 'primary';
+        case 'shipped':
+          return 'info';
+        case 'cancelled':
+          return 'danger';
+        default:
+          return 'secondary';
+      }
+    }
+    
+    function displaySampleOrders() {
+      // Sample order data for fallback
+      const sampleOrders = [
+        {
+          id: 1001,
+          created_at: '2023-06-15',
+          total_amount: 1299.98,
+          status: 'Delivered',
+          items: [
+            {
+              product_name: 'Laptop',
+              product_price: 799.99,
+              product_image: 'assets/images/laptop.jpg',
+              quantity: 1
+            },
+            {
+              product_name: 'Headphones',
+              product_price: 199.99,
+              product_image: 'assets/images/headphones.jpg',
+              quantity: 2
+            }
+          ]
+        },
+        {
+          id: 1002,
+          created_at: '2023-07-20',
+          total_amount: 799.99,
+          status: 'Processing',
+          items: [
+            {
+              product_name: 'Smartphone',
+              product_price: 699.99,
+              product_image: 'assets/images/smartphone.jpg',
+              quantity: 1
+            },
+            {
+              product_name: 'Phone Case',
+              product_price: 29.99,
+              product_image: 'assets/images/phone_case.jpg',
+              quantity: 1
+            }
+          ]
+        }
+      ];
+      
+      displayOrders(sampleOrders);
+    }
+    
+    function updateProfilePic(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+          document.getElementById("profile-pic").src = e.target.result;
+          // Save to localStorage
+          localStorage.setItem('profileImage', e.target.result);
+        };
+        
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    
+    function editField(field) {
+      const currentValue = document.getElementById(`${field}-text`).textContent;
+      const newValue = prompt(`Enter new ${field}:`, currentValue);
+      
+      if (newValue && newValue.trim() !== '') {
+        document.getElementById(`${field}-text`).textContent = newValue;
+        // Save to localStorage
+        localStorage.setItem(`profile${field.charAt(0).toUpperCase() + field.slice(1)}`, newValue);
+      }
+    }
+    
+    function showTab(tabName) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-pane').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Show selected tab
+      document.getElementById(`${tabName}-tab`).classList.add('active');
+      
+      // Add active class to clicked button
+      event.currentTarget.classList.add('active');
+    }
+    
+    function clearOrderHistory() {
+      if (confirm('Are you sure you want to clear your order history? This cannot be undone.')) {
+        // Clear from localStorage
+        localStorage.removeItem('orderHistory');
+        
+        // Clear the display
+        const container = document.getElementById('orders-container');
+        container.innerHTML = '<p class="text-center py-3">You have no orders yet.</p>';
+        
+        // Optional: Make an API call to clear orders from the database
+        fetch('http://localhost:8000/frontend/backend/clear_orders.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('Order history cleared successfully');
+          }
+        })
+        .catch(error => {
+          console.error('Error clearing orders:', error);
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>

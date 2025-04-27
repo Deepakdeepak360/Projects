@@ -1,0 +1,20 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "ecommerce",
+            "database": "ecommerce",
+            "connectionTimeout": 30,
+            "username": "root",
+            "password": "2006"
+        }
+    ],
+    "liveServer.settings.port": 5502
+}
