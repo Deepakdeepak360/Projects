@@ -38,7 +38,7 @@ A modern, responsive e-commerce platform built with HTML, CSS, and JavaScript. T
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/e-commerce.git
+   git clone https://github.com/Deepakdeepak360/e-commerce.git
    ```
 2. Navigate to the project directory:
    ```bash
