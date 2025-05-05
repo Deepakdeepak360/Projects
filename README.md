@@ -93,5 +93,9 @@ date,sales
 * Error handling and logging
 * Secure file operations
 
+## Screenshot
+![image](https://github.com/user-attachments/assets/069f8e69-70a1-4d31-ba38-1a076b54f8a0)
+
+
 This project demonstrates the integration of modern web technologies with machine learning to create a practical business intelligence tool.
 
