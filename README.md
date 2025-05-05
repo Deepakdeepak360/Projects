@@ -10,14 +10,13 @@ This project is a web-based sales prediction application that uses machine learn
 - Responsive web design
 
 ## Project Structure
-
 Sales Prediction/
 ├── backend/
 │   ├── downloads/         # Stores generated prediction files
 │   ├── uploads/          # Stores uploaded CSV files
 │   ├── predict.php       # PHP handler for file uploads
 │   └── predict.py        # Python ML prediction script
-└── index.html           # Main web interface
+└── index.html           # Main web interfac
 
 
 ## Technologies Used
