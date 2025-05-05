@@ -1,114 +1,97 @@
-💼 AI Sales Predictor
-A web-based sales prediction application that uses machine learning (XGBoost) to forecast future sales based on historical data. The app integrates PHP, Python, and JavaScript to deliver an interactive and user-friendly experience.
+# AI Sales Predictor
 
-🚀 Features
-📁 Upload CSV files containing historical sales data
+This project is a web-based sales prediction application that uses machine learning to forecast future sales based on historical data. The application combines PHP, Python, and JavaScript to create an interactive and user-friendly experience.
 
-🤖 AI-powered sales prediction using XGBoost
+## Features
 
-📊 Interactive visualization with Chart.js
+* Upload CSV files containing historical sales data
+* AI-powered sales prediction using XGBoost
+* Interactive visualization with Chart.js
+* 30-day sales forecast
+* Downloadable prediction results
+* Responsive web design
 
-📅 30-day sales forecast
+## Technologies Used
 
-📥 Downloadable prediction results
+* Frontend:
 
-📱 Responsive web design
+  * HTML5
+  * CSS3 (with animations and responsive design)
+  * JavaScript
+  * Chart.js for data visualization
+* Backend:
 
-🛠️ Technologies Used
-🔹 Frontend
-HTML5
+  * PHP (7.0+) for server handling
+  * Python for ML predictions
+  * XGBoost for machine learning
+  * Pandas for data processing
+  *
 
-CSS3 (with animations and responsive design)
+## Getting Started
 
-JavaScript
+1. Make sure you have the following installed:
 
-Chart.js for data visualization
+   * PHP 7.0 or higher
+   * Python 3.x
+   * Required Python packages: pandas, xgboost
 
-🔹 Backend
-PHP (7.0+) for server-side logic
+2. Install Python dependencies:
 
-Python for machine learning execution
+   pip install pandas xgboost
 
-XGBoost for predictive modeling
+3. Start the PHP development server
 
-Pandas for data processing
+   php -S 127.0.0.1:5500 -t .
 
-⚙️ Getting Started
-1. Prerequisites
-Make sure the following are installed:
+4. Open your browser and visit your local host:
 
-PHP 7.0 or higher
+   [http://127.0.0.1:5500](http://127.0.0.1:5500) (in my case its local host 5500)
 
-Python 3.x
+## Input Data Format
 
-Required Python packages: pandas, xgboost
+The application expects CSV files with the following format:
 
-2. Install Python dependencies
-bash
-Copy
-Edit
-pip install pandas xgboost
-3. Start PHP development server
-bash
-Copy
-Edit
-php -S 127.0.0.1:5500 -t .
-4. Open your browser and visit:
-cpp
-Copy
-Edit
-http://127.0.0.1:5500
-📄 Input Data Format
-The uploaded CSV should follow this format:
-
-python-repl
-Copy
-Edit
 date,sales
 2023-01-01,169
 2023-01-02,188
 ...
-🔍 Feature Details
-📂 1. Data Upload
-Accepts .csv files with historical sales data
 
-Validates file format and content
+## Features Details
 
-🤖 2. AI Prediction
-XGBoost regression model
+1. Data Upload
 
-Input features:
+   * Accepts CSV files with historical sales data
+   * Validates file format and content
 
-Previous day sales
+2. AI Prediction
 
-Day of the week
+   * Uses XGBoost regression model
+   * Features include:
 
-Month
+     * Previous day sales
+     * Day of week
+     * Month
+     * 3-day rolling average
 
-3-day rolling average
+3. Visualization
 
-📈 3. Visualization
-Interactive chart of predicted values (Chart.js)
+   * Interactive chart showing predicted values
+   * Tabular display of predictions
+   * Downloadable CSV results
 
-Tabular display of prediction results
+## Notes
 
-CSV download of forecasted data
+* The system provides 30-day sales forecasts
+* Predictions are based on historical patterns
+* The model considers seasonal trends and weekly patterns
+* Results can be downloaded in CSV format for further analysis
 
-📌 Notes
-The system generates a 30-day forecast
+## Security Features
 
-Predictions are based on historical trends, seasonality, and weekly patterns
+* Input validation for file uploads
+* Shell argument escaping
+* Error handling and logging
+* Secure file operations
 
-Results can be downloaded in .csv format for further analysis
+This project demonstrates the integration of modern web technologies with machine learning to create a practical business intelligence tool.
 
-🔐 Security Features
-Input validation for uploaded files
-
-Escaped shell arguments for safe execution
-
-Error handling and logging
-
-Secure file operations to prevent code injection or path traversal
-
-📊 Project Objective
-This project showcases how modern web technologies can integrate with machine learning to build practical, insightful business intelligence tools.
