@@ -22,20 +22,23 @@ This project is a web-based sales prediction application that uses machine learn
   - Python for ML predictions
   - XGBoost for machine learning
   - Pandas for data processing
+  - 
 ## Getting Started
 1. Make sure you have the following installed:
-   
    - PHP 7.0 or higher
    - Python 3.x
    - Required Python packages: pandas, xgboost
 
 2. Install Python dependencies:
+   
     pip install pandas xgboost
 
 3. Start the PHP development server
+   
     php -S 127.0.0.1:5500 -t .
 
 4. Open your browser and visit your local host:
+   
     http://127.0.0.1:5500 (in my case its local host 5500)
 
 ## Input Data Format
