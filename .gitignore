@@ -1,8 +1,0 @@
-.venv/
-__pycache__/
-*.pyc
-backend/uploads/*
-backend/downloads/*
-!backend/uploads/.gitkeep
-!backend/downloads/.gitkeep
-backend/debug_output.log
